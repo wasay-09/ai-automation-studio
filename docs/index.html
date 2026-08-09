@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abdul Wasay — AI Automation Engineer</title>
+<meta name="description" content="I build AI automation systems that qualify leads, answer customers, process documents and produce content — deployed, documented and handed over. Five live demos, no sign-up.">
+<meta property="og:title" content="Abdul Wasay — AI Automation Engineer">
+<meta property="og:description" content="Five production-grade AI automation systems you can click through right now. No sign-up.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0d0f'/><text y='.9em' x='50%25' text-anchor='middle' font-size='62' font-family='monospace' fill='%23c8f24e'>&#9889;</text></svg>">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0a0c0e; --bg-2:#0e1114; --surface:#121619; --surface-2:#171c20;
+    --line:#232a2f; --line-2:#2e373d;
+    --text:#e9edef; --muted:#9aa6ad; --dim:#6d787f;
+    --accent:#c8f24e; --accent-dim:#8fae2e; --accent-glow:rgba(200,242,78,.14);
+    --blue:#7aa2ff; --warn:#ffb454;
+    --max:1160px;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  }
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg); color:var(--text); font-family:var(--sans);
+    line-height:1.6; font-size:16px; -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(900px 500px at 78% -8%, rgba(200,242,78,.07), transparent 60%),
+      radial-gradient(700px 400px at 10% 0%, rgba(122,162,255,.06), transparent 60%),
+      linear-gradient(transparent 0 39px, rgba(255,255,255,.018) 39px 40px),
+      linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,.018) 39px 40px);
+    background-size:auto,auto,40px 40px,40px 40px;
+    mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);
+  }
+  .wrap{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{line-height:1.15;letter-spacing:-.022em;font-weight:640}
+  section{padding:96px 0;position:relative;z-index:1}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent-dim);display:flex;align-items:center;gap:10px;margin-bottom:18px
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--accent-dim);opacity:.6}
+  h2.sec{font-size:clamp(28px,4vw,40px);margin-bottom:14px}
+  .sec-sub{color:var(--muted);max-width:62ch;font-size:17px}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+    background:rgba(10,12,14,.72);border-bottom:1px solid transparent;transition:border-color .25s
+  }
+  nav.stuck{border-bottom-color:var(--line)}
+  .nav-in{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:28px}
+  .brand{font-family:var(--mono);font-weight:600;font-size:14.5px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+  .nav-links{margin-left:auto;display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:14px;color:var(--muted);transition:color .18s}
+  .nav-links a:hover{color:var(--text)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:560;
+    padding:10px 18px;border-radius:9px;border:1px solid var(--line-2);
+    background:var(--surface);color:var(--text);transition:all .18s;cursor:pointer;font-family:inherit
+  }
+  .btn:hover{border-color:var(--accent-dim);background:var(--surface-2);transform:translateY(-1px)}
+  .btn-primary{background:var(--accent);color:#0c1005;border-color:var(--accent);font-weight:640}
+  .btn-primary:hover{background:#d7ff62;border-color:#d7ff62;box-shadow:0 6px 26px var(--accent-glow)}
+  .btn-lg{padding:13px 24px;font-size:15px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:104px 0 76px}
+  .avail{
+    display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;
+    color:var(--muted);border:1px solid var(--line);background:var(--surface);
+    padding:6px 13px;border-radius:100px;margin-bottom:26px
+  }
+  .pulse{width:7px;height:7px;border-radius:50%;background:var(--accent);position:relative}
+  .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--accent);opacity:.45;animation:p 2.2s ease-out infinite}
+  @keyframes p{0%{transform:scale(.6);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+  .hero h1{font-size:clamp(38px,6.2vw,66px);letter-spacing:-.035em;max-width:16ch;font-weight:660}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p.lede{margin-top:24px;font-size:clamp(17px,2vw,19.5px);color:var(--muted);max-width:60ch}
+  .hero-cta{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .stack-row{margin-top:52px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .chip{
+    font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);
+    padding:5px 11px;border-radius:6px;background:rgba(255,255,255,.014)
+  }
+
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:70px}
+  .stat{background:var(--bg-2);padding:24px 22px}
+  .stat b{display:block;font-size:clamp(24px,3.4vw,32px);font-weight:660;letter-spacing:-.03em;color:var(--text)}
+  .stat span{font-size:13px;color:var(--dim);display:block;margin-top:5px;line-height:1.4}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- services ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:44px}
+  .svc{
+    border:1px solid var(--line);border-radius:14px;padding:26px 24px;background:var(--bg-2);
+    transition:border-color .2s,transform .2s
+  }
+  .svc:hover{border-color:var(--line-2);transform:translateY(-3px)}
+  .svc .ic{font-size:22px;margin-bottom:16px;display:block;filter:saturate(.85)}
+  .svc h3{font-size:17px;margin-bottom:9px}
+  .svc p{font-size:14.5px;color:var(--muted);line-height:1.62}
+
+  /* ---------- work ---------- */
+  .work{display:flex;flex-direction:column;gap:20px;margin-top:48px}
+  .case{
+    border:1px solid var(--line);border-radius:16px;background:var(--bg-2);overflow:hidden;
+    display:grid;grid-template-columns:1.35fr 1fr;transition:border-color .22s
+  }
+  .case:hover{border-color:var(--line-2)}
+  .case-main{padding:32px 34px}
+  .case-side{border-left:1px solid var(--line);padding:32px 28px;background:rgba(255,255,255,.012);display:flex;flex-direction:column}
+  @media(max-width:880px){
+    .case{grid-template-columns:1fr}
+    .case-side{border-left:none;border-top:1px solid var(--line)}
+    .case-main{padding:28px 24px}.case-side{padding:24px}
+  }
+  .case-no{font-family:var(--mono);font-size:12px;color:var(--accent-dim);letter-spacing:.1em}
+  .case h3{font-size:clamp(22px,2.7vw,27px);margin:10px 0 4px}
+  .case .tag{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+  .prob{
+    margin:22px 0 18px;padding:14px 16px;border-left:2px solid var(--warn);
+    background:rgba(255,180,84,.045);border-radius:0 8px 8px 0
+  }
+  .prob b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--warn);margin-bottom:6px;font-weight:600}
+  .prob p{font-size:14.5px;color:var(--muted)}
+  .case ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin:0 0 22px}
+  .case ul li{font-size:14.5px;color:var(--muted);padding-left:20px;position:relative;line-height:1.55}
+  .case ul li::before{content:"→";position:absolute;left:0;color:var(--accent-dim);font-size:13px}
+  .chips{display:flex;gap:7px;flex-wrap:wrap}
+  .outcome{margin-bottom:auto}
+  .outcome b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:9px;font-weight:600}
+  .outcome p{font-size:16px;color:var(--text);line-height:1.5;font-weight:520;letter-spacing:-.012em}
+  .case-links{display:flex;flex-direction:column;gap:9px;margin-top:26px}
+  .case-links .btn{justify-content:center;width:100%}
+
+  /* ---------- process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:44px}
+  .step{background:var(--bg-2);padding:28px 24px}
+  .step .n{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:14px;display:block}
+  .step h4{font-size:16px;margin-bottom:8px}
+  .step p{font-size:14px;color:var(--muted);line-height:1.6}
+  @media(max-width:880px){.steps{grid-template-columns:1fr}}
+
+  /* ---------- pricing ---------- */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  @media(max-width:880px){.price-grid{grid-template-columns:1fr}}
+  .price{border:1px solid var(--line);border-radius:16px;padding:30px 26px;background:var(--bg-2);display:flex;flex-direction:column}
+  .price.feature{border-color:var(--accent-dim);background:linear-gradient(180deg,rgba(200,242,78,.05),transparent 45%)}
+  .price .lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .price .amt{font-size:32px;font-weight:660;letter-spacing:-.03em;margin:14px 0 4px}
+  .price .amt small{font-size:14px;color:var(--dim);font-weight:400;letter-spacing:0}
+  .price .desc{font-size:14px;color:var(--muted);margin-bottom:20px}
+  .price ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+  .price ul li{font-size:14px;color:var(--muted);padding-left:22px;position:relative;line-height:1.5}
+  .price ul li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-size:12px}
+  .price .btn{margin-top:auto;justify-content:center}
+
+  /* ---------- faq ---------- */
+  .faq{margin-top:40px;border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{padding:20px 2px;cursor:pointer;font-size:16.5px;font-weight:540;list-style:none;display:flex;align-items:center;gap:14px;transition:color .18s}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";margin-left:auto;color:var(--accent-dim);font-size:19px;font-weight:400;transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  summary:hover{color:var(--accent)}
+  details p{padding:0 2px 22px;color:var(--muted);font-size:15px;max-width:72ch;line-height:1.7}
+
+  /* ---------- contact ---------- */
+  .cta{
+    border:1px solid var(--line-2);border-radius:20px;padding:clamp(34px,5vw,58px);
+    background:linear-gradient(155deg,rgba(200,242,78,.055),var(--bg-2) 55%);text-align:center
+  }
+  .cta h2{font-size:clamp(28px,4.4vw,42px);letter-spacing:-.03em;margin-bottom:16px}
+  .cta p{color:var(--muted);max-width:56ch;margin:0 auto 32px;font-size:17px}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .copied{color:var(--accent)!important;border-color:var(--accent-dim)!important}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;margin-top:60px}
+  .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--dim)}
+  .foot a:hover{color:var(--accent)}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.pulse::after{animation:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand"><span class="dot"></span>wasay<span style="color:var(--dim)">.automation</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="btn btn-primary">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+<header class="hero">
+  <div class="avail"><span class="pulse"></span> Available for new projects · UAE &amp; US hours</div>
+  <h1>AI automations that <em>pay for themselves</em> in 90 days.</h1>
+  <p class="lede">
+    I design and ship the unglamorous systems that actually move revenue: lead engines that reply in
+    under a minute, support agents that answer from your own documents, invoice pipelines that stop
+    the re-keying, and content engines that turn one recording into a month of posts.
+  </p>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-primary btn-lg">See 5 live demos →</a>
+    <a href="#contact" class="btn btn-lg">Book a free automation audit</a>
+  </div>
+  <div class="stack-row">
+    <span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">FastAPI</span>
+    <span class="chip">Node 22</span><span class="chip">Claude API</span><span class="chip">RAG</span>
+    <span class="chip">SQLite / Postgres</span><span class="chip">Docker</span><span class="chip">n8n / Make</span>
+  </div>
+
+  <div class="stats reveal">
+    <div class="stat"><b>5</b><span>Production-grade systems, source open</span></div>
+    <div class="stat"><b>Live</b><span>Every demo is clickable — no sign-up</span></div>
+    <div class="stat"><b>150+</b><span>Automated tests across the suite</span></div>
+    <div class="stat"><b>&lt;1 day</b><span>Typical deploy once scope is fixed</span></div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="eyebrow">Selected work</div>
+  <h2 class="sec">Five systems you can click through right now</h2>
+  <p class="sec-sub">
+    Each one runs a real demo in your browser — no account, no API key. The full source, tests and an
+    agent-executable deploy guide are on GitHub.
+  </p>
+
+  <div class="work">
+
+    <article class="case reveal">
+      <div class="case-main">
+        <span class="case-no">01 / SALES OPS</span>
+        <h3>LeadFlow AI</h3>
+        <div class="tag">Inbound lead qualification &amp; routing engine</div>
+        <div class="prob"><b>The problem</b><p>Speed-to-lead decides the deal. Most brokerages and agencies take hours to reply, and reps burn their day on junk enquiries that were never going to close.</p></div>
+        <ul>
+          <li>Ingests every lead — web form, portal, CSV, webhook — and de-duplicates on arrival</li>
+          <li>Enriches from the email domain: corporate vs free, industry, region, timezone</li>
+          <li>Scores 0–100 with a transparent rule engine you can audit, plus an AI intent read</li>
+          <li>Drafts a personalised first reply and routes to the right owner with an SLA timer</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLite</span><span class="chip">Claude</span></div>
+      </div>
+      <div class="case-side">
+        <div class="outcome"><b>Outcome</b><p>First response in under 60 seconds, junk filtered before it ever reaches a rep — and every score is explainable to the sales manager.</p></div>
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://wasay-09.github.io/leadflow-ai/" target="_blank" rel="noopener">Open live demo ↗</a>
+          <a class="btn" href="https://github.com/wasay-09/leadflow-ai" target="_blank" rel="noopener">Source &amp; docs</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-main">
+        <span class="case-no">02 / CUSTOMER SUPPORT</span>
+        <h3>Concierge Agent</h3>
+        <div class="tag">Embeddable AI support &amp; booking agent, grounded in your documents</div>
+        <div class="prob"><b>The problem</b><p>Enquiries arrive at 11pm and nobody answers until morning. Meanwhile staff retype the same twenty answers all day, and generic chatbots invent things that aren't true.</p></div>
+        <ul>
+          <li>One <code>&lt;script&gt;</code> tag — a shadow-DOM widget that can't break your site's CSS</li>
+          <li>Answers <em>only</em> from the business's own documents, with visible citations</li>
+          <li>Refuses to guess: below a confidence threshold it hands off to a human with full context</li>
+          <li>Captures bookings with validated details, and reports the questions it couldn't answer</li>
+        </ul>
+        <div class="chips"><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">BM25 RAG</span><span class="chip">Claude</span></div>
+      </div>
+      <div class="case-side">
+        <div class="outcome"><b>Outcome</b><p>The bulk of routine questions handled without a human, every after-hours enquiry captured instead of lost, and a monthly report of the content gaps worth filling.</p></div>
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://wasay-09.github.io/concierge-agent/" target="_blank" rel="noopener">Open live demo ↗</a>
+          <a class="btn" href="https://github.com/wasay-09/concierge-agent" target="_blank" rel="noopener">Source &amp; docs</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-main">
+        <span class="case-no">03 / FINANCE OPS</span>
+        <h3>DocuFlow</h3>
+        <div class="tag">Invoice &amp; receipt processing pipeline</div>
+        <div class="prob"><b>The problem</b><p>Bookkeepers re-key hundreds of supplier invoices a month. It's slow, it's expensive, and duplicate invoices quietly get paid twice.</p></div>
+        <ul>
+          <li>PDF in, structured accounting data out — supplier, TRN/VAT, line items, tax, totals</li>
+          <li>Handles UAE (5% VAT, AED), US and UK/EU formats, including their date and number quirks</li>
+          <li>Validates the arithmetic: line items must sum, tax must reconcile, dates must be sane</li>
+          <li>Confidence routing — clean documents auto-approve, only uncertain fields reach a human</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">pypdf</span><span class="chip">Claude</span></div>
+      </div>
+      <div class="case-side">
+        <div class="outcome"><b>Outcome</b><p>Roughly four minutes of manual entry per invoice reduced to under twenty seconds of review — with duplicate-payment detection built into the intake.</p></div>
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://wasay-09.github.io/docuflow/" target="_blank" rel="noopener">Open live demo ↗</a>
+          <a class="btn" href="https://github.com/wasay-09/docuflow" target="_blank" rel="noopener">Source &amp; docs</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-main">
+        <span class="case-no">04 / GROWTH</span>
+        <h3>Outreach Engine</h3>
+        <div class="tag">AI SDR — research, personalisation &amp; deliverability</div>
+        <div class="prob"><b>The problem</b><p>Cold outreach fails twice over: the copy is obviously templated, and the emails never reach the inbox in the first place. Most teams only find out after burning the domain.</p></div>
+        <ul>
+          <li>Researches each company and opens with a specific, verifiable fact — never "I hope this finds you well"</li>
+          <li>Scores ICP fit 0–100 with a per-criterion breakdown and a plain-English rationale</li>
+          <li>Lints every email: spam triggers, subject patterns, link density, readability</li>
+          <li>Checks SPF, DKIM and DMARC on the sending domain before a single send goes out</li>
+        </ul>
+        <div class="chips"><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">DNS</span><span class="chip">Claude</span></div>
+      </div>
+      <div class="case-side">
+        <div class="outcome"><b>Outcome</b><p>Campaigns that are specific by default and inbox-placement-checked before launch, exported straight into Instantly, Smartlead or Lemlist.</p></div>
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://wasay-09.github.io/outreach-engine/" target="_blank" rel="noopener">Open live demo ↗</a>
+          <a class="btn" href="https://github.com/wasay-09/outreach-engine" target="_blank" rel="noopener">Source &amp; docs</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-main">
+        <span class="case-no">05 / CONTENT</span>
+        <h3>ContentForge</h3>
+        <div class="tag">One long-form asset → a full week of channel-native content</div>
+        <div class="prob"><b>The problem</b><p>A founder records a great hour-long podcast, it gets published once, and that's the end of it. Repurposing by hand is the most-skipped task in marketing because it's genuinely tedious.</p></div>
+        <ul>
+          <li>Takes a transcript, blog post or SRT/VTT file and finds the segments actually worth clipping</li>
+          <li>Writes LinkedIn posts, an X thread, a newsletter section and short-form scripts with real timecodes</li>
+          <li>Enforces a brand voice profile — banned phrases, reading level, CTA style — and scores compliance</li>
+          <li>Assembles everything into a seven-day publishing calendar, ready to export</li>
+        </ul>
+        <div class="chips"><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">Claude</span></div>
+      </div>
+      <div class="case-side">
+        <div class="outcome"><b>Outcome</b><p>One recording becomes twenty-plus assets in a single consistent voice — the difference between a content retainer that scales and one that eats your week.</p></div>
+        <div class="case-links">
+          <a class="btn btn-primary" href="https://wasay-09.github.io/contentforge/" target="_blank" rel="noopener">Open live demo ↗</a>
+          <a class="btn" href="https://github.com/wasay-09/contentforge" target="_blank" rel="noopener">Source &amp; docs</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="services">
+  <div class="eyebrow">What I build</div>
+  <h2 class="sec">Four kinds of problem I take on</h2>
+  <p class="sec-sub">If a person is doing it more than twenty times a month by hand, it's probably a candidate.</p>
+  <div class="svc-grid reveal">
+    <div class="svc">
+      <span class="ic">🤖</span>
+      <h3>AI agents &amp; assistants</h3>
+      <p>Support agents, internal knowledge bots and booking assistants grounded in your own documents — with citations, confidence gates and clean human handoff.</p>
+    </div>
+    <div class="svc">
+      <span class="ic">⚙️</span>
+      <h3>Workflow &amp; ops automation</h3>
+      <p>The connective tissue between your CRM, inbox, sheets and Slack. Webhooks, queues, retries, alerting — the parts that make an automation survive contact with reality.</p>
+    </div>
+    <div class="svc">
+      <span class="ic">📄</span>
+      <h3>Document &amp; data pipelines</h3>
+      <p>Invoices, contracts, applications and reports turned into validated structured data, with confidence scoring so humans only review what actually needs review.</p>
+    </div>
+    <div class="svc">
+      <span class="ic">📈</span>
+      <h3>Growth &amp; revenue systems</h3>
+      <p>Lead scoring and routing, outbound personalisation, deliverability hygiene, and content engines that keep the pipeline fed without adding headcount.</p>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="eyebrow">How it works</div>
+  <h2 class="sec">Fixed scope. Fixed price. Deployed and handed over.</h2>
+  <p class="sec-sub">No open-ended discovery, no surprise invoices. You own the code at the end of it.</p>
+  <div class="steps reveal">
+    <div class="step">
+      <span class="n">01</span><h4>Automation audit</h4>
+      <p>A 30-minute call, then a written map of your three highest-ROI automations with rough hours saved per month. Free, and yours to keep either way.</p>
+    </div>
+    <div class="step">
+      <span class="n">02</span><h4>Pilot build</h4>
+      <p>We pick one workflow and I build it properly — tested, documented, running against your real data. Usually five to ten working days.</p>
+    </div>
+    <div class="step">
+      <span class="n">03</span><h4>Deploy &amp; handover</h4>
+      <p>Shipped to your infrastructure or mine, with monitoring, a runbook and a walkthrough recording. The repo is yours, no lock-in.</p>
+    </div>
+    <div class="step">
+      <span class="n">04</span><h4>Iterate</h4>
+      <p>Most clients continue on a monthly retainer — new workflows, tuning against real usage, and keeping the thing healthy as the business changes.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="eyebrow">Engagement</div>
+  <h2 class="sec">Straightforward pricing</h2>
+  <p class="sec-sub">Ranges, not quotes — the real number depends on scope, which we fix before anything starts.</p>
+  <div class="price-grid reveal">
+    <div class="price">
+      <span class="lbl">Audit</span>
+      <div class="amt">Free</div>
+      <p class="desc">For teams who suspect there's waste but aren't sure where.</p>
+      <ul>
+        <li>30-minute working call</li>
+        <li>Written map of the top 3 automations</li>
+        <li>Estimated hours saved per month</li>
+        <li>No obligation, no pitch deck</li>
+      </ul>
+      <a class="btn" href="#contact">Book the audit</a>
+    </div>
+    <div class="price feature">
+      <span class="lbl">Pilot build · most popular</span>
+      <div class="amt">from $1,500 <small>fixed</small></div>
+      <p class="desc">One workflow, built properly and put into production.</p>
+      <ul>
+        <li>Scoped, built, tested and deployed</li>
+        <li>Full source code and documentation</li>
+        <li>Runbook plus a walkthrough recording</li>
+        <li>Two weeks of post-launch fixes included</li>
+      </ul>
+      <a class="btn btn-primary" href="#contact">Start a pilot</a>
+    </div>
+    <div class="price">
+      <span class="lbl">Retainer</span>
+      <div class="amt">from $2,000 <small>/ month</small></div>
+      <p class="desc">For teams automating continuously, not once.</p>
+      <ul>
+        <li>Ongoing builds and improvements</li>
+        <li>Monitoring, alerting and maintenance</li>
+        <li>Priority turnaround on changes</li>
+        <li>Monthly report on time and cost saved</li>
+      </ul>
+      <a class="btn" href="#contact">Talk retainer</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="eyebrow">Questions</div>
+  <h2 class="sec">The things clients usually ask first</h2>
+  <div class="faq">
+    <details><summary>Which timezones do you work across?</summary>
+      <p>I work Gulf Standard Time and overlap the US morning, so Dubai, Abu Dhabi, Riyadh and US East Coast teams all get live hours with me. Standups, demos and incident response happen inside your working day, not after it.</p></details>
+    <details><summary>Who owns the code?</summary>
+      <p>You do, entirely. Everything is delivered into your repository under a licence you choose, with no runtime dependency on me or on any platform I control. If we stop working together, nothing you rely on stops working.</p></details>
+    <details><summary>What does the AI itself cost to run?</summary>
+      <p>That's billed by the model provider directly to your account, and it's usually the smallest line in the budget — most of these systems run in the tens of dollars a month at real volume. Every build routes the cheap deterministic work through plain code and only calls a model where a model genuinely earns its place.</p></details>
+    <details><summary>Do these demos need an API key?</summary>
+      <p>No. Every project ships with a demo mode that runs the full pipeline deterministically with no key at all, which is exactly why you can click through all five right now. Point it at a real API key and the same interfaces switch to live model calls.</p></details>
+    <details><summary>Can you work with our existing stack?</summary>
+      <p>Yes — these builds already integrate with webhooks, CRMs, Google Sheets, Slack, and the usual sending and scheduling platforms. If you're already running n8n, Make or Zapier, I'll build around it rather than insisting you replace it.</p></details>
+    <details><summary>How do we start without committing to anything?</summary>
+      <p>Take the free audit. You get a written map of where the waste is and what it's worth fixing, whether or not you hire me for the build.</p></details>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cta reveal">
+    <h2>Let's find the hours you're losing</h2>
+    <p>Tell me what your team does by hand every week. I'll tell you honestly whether it's worth automating — and what it would take.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary btn-lg" href="mailto:wasayabdul71@gmail.com?subject=Automation%20audit%20request&body=Hi%20Wasay%2C%0A%0AWhat%20we%20do%20manually%20each%20week%3A%0A%0AWhere%20it%20hurts%20most%3A%0A%0ATeam%20size%20%26%20timezone%3A%0A">Email me →</a>
+      <button class="btn btn-lg" id="copyBtn" type="button">Copy email address</button>
+      <a class="btn btn-lg" href="https://github.com/wasay-09" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <span>© <span id="yr">2026</span> Abdul Wasay · AI automation engineering</span>
+    <span><a href="https://github.com/wasay-09" target="_blank" rel="noopener">github.com/wasay-09</a> · <a href="mailto:wasayabdul71@gmail.com">wasayabdul71@gmail.com</a></span>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.classList.toggle('stuck', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  var EMAIL = 'wasayabdul71@gmail.com';
+  var btn = document.getElementById('copyBtn');
+  btn.addEventListener('click', function () {
+    var done = function () {
+      var old = btn.textContent;
+      btn.textContent = '✓ Copied — ' + EMAIL;
+      btn.classList.add('copied');
+      setTimeout(function () { btn.textContent = old; btn.classList.remove('copied'); }, 2400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(EMAIL).then(done, function () { window.prompt('Copy the address:', EMAIL); });
+    } else {
+      window.prompt('Copy the address:', EMAIL);
+    }
+  });
+})();
+</script>
+</body>
+</html>
